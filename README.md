@@ -22,7 +22,7 @@ BenchmarkSum64StringXxhash/4B-12                184129242                6.487 n
 BenchmarkSum64StringXxhash/16B-12               140242632                8.534 ns/op    1874.89 MB/s           0 B/op          0 allocs/op
 BenchmarkSum64StringXxhash/100B-12              52295360                22.98 ns/op     4352.22 MB/s           0 B/op          0 allocs/op
 BenchmarkSum64StringXxhash/4KB-12                2945018               405.1 ns/op      9873.08 MB/s           0 B/op          0 allocs/op
-BenchmarkSum64StringXxhash/10MB-12                  1066           1101171 ns/op        9081.24 MB/s           0 B/op          0 allocs/op
+BenchmarkSum64StringXxhash/10MB-12                   1066           1101171 ns/op        9081.24 MB/s           0 B/op          0 allocs/op
 ```
 
 ## Benchmark Result when changing from Murmur3 to Xxhash
