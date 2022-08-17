@@ -58,3 +58,63 @@ BenchmarkSum64ToString/4KB-12      4096          0             -100.00%
 BenchmarkSum64ToString/10MB-12     10002433      0             -100.00%
 ```
 
+
+To compare using benchcmp, run:
+
+```bash
+go test -run=xxx -bench=BenchmarkSum64String -benchmem > a.txt
+```
+
+change the benchmark to the function to compare to and run
+
+```bash
+
+go test -run=xxx -bench=BenchmarkSum64String -benchmem > b.txt
+```
+
+then run:
+
+```bash
+benchcmp a.txt b.txt
+```
+
+or
+
+```bash
+benchstat a.txt b.txt
+```
+
+```bash
+github.com/cespare/xxhash/v2 vs github.com/zeebo/xxh3
+benchmark                        old ns/op     new ns/op     delta
+BenchmarkSum64String/4B-12       6.60          5.46          -17.38%
+BenchmarkSum64String/16B-12      8.54          5.42          -36.55%
+BenchmarkSum64String/100B-12     22.9          17.4          -24.05%
+BenchmarkSum64String/4KB-12      405           138           -65.95%
+BenchmarkSum64String/10MB-12     1130583       428535        -62.10%
+
+benchmark                        old MB/s     new MB/s     speedup
+BenchmarkSum64String/4B-12       605.66       733.13       1.21x
+BenchmarkSum64String/16B-12      1874.33      2954.30      1.58x
+BenchmarkSum64String/100B-12     4357.17      5737.16      1.32x
+BenchmarkSum64String/4KB-12      9869.16      28994.26     2.94x
+BenchmarkSum64String/10MB-12     8845.00      23335.32     2.64x
+
+benchmark                        old allocs     new allocs     delta
+BenchmarkSum64String/4B-12       0              0              +0.00%
+BenchmarkSum64String/16B-12      0              0              +0.00%
+BenchmarkSum64String/100B-12     0              0              +0.00%
+BenchmarkSum64String/4KB-12      0              0              +0.00%
+BenchmarkSum64String/10MB-12     0              0              +0.00%
+
+benchmark                        old bytes     new bytes     delta
+BenchmarkSum64String/4B-12       0             0             +0.00%
+BenchmarkSum64String/16B-12      0             0             +0.00%
+BenchmarkSum64String/100B-12     0             0             +0.00%
+BenchmarkSum64String/4KB-12      0             0             +0.00%
+BenchmarkSum64String/10MB-12     0             0             +0.00%
+```
+
+    
+
+

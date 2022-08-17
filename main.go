@@ -6,6 +6,7 @@ import (
 	"crypto/sha256"
 	x "github.com/cespare/xxhash/v2"
 	m "github.com/spaolacci/murmur3"
+	x3 "github.com/zeebo/xxh3"
 )
 
 func Sum64StringMurmur3(value string) uint64 {
@@ -32,4 +33,8 @@ func Sum64StringMD5(value string) uint64 {
 	h := md5.New()
 	h.Write([]byte(value))
 	return uint64(h.Sum(nil)[0])
+}
+
+func Sum64StringXXH3(value string) uint64 {
+	return x3.HashString(value)
 }
